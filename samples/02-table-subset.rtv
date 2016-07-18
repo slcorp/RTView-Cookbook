@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<rtview xmlns="www.sl.com" version="3.4">
+	<model file="com.sl.gmsjrtview.m_basemodel"
+		width="736" height="544"
+		dockFillRows="1" dockFillColumns="0"
+		bgColor="8"
+		bg3dFlag="0"
+		bgBorderFlag="1"
+		bgGradientMode="1"
+		bgGradientColor2="0"
+		bgBorderColor="7"
+		resizeWidthMin="0"
+		resizeHeightMin="0"
+		rtvRefreshInterval="">
+	</model>
+	<localvar name="__$component" initValue="*" dataType="scalar"/>
+	<localvar name="__$server" initValue="*" dataType="scalar"/>
+	<object name="N20" class="com.sl.gmsjrtview.obj_function"
+		y="0.0" x="0.0"
+		function="SELLIST"
+		resultName="serverListAll"
+		public="1"
+		description=""
+		s_arg1="All Servers"
+		i_arg1="1"
+		i_arg2="0">
+		<vardef varname="t_arg1" dsstring="cache &lt;?xml?&gt;&lt;Cache&gt;ServerComponentStats&lt;/Cache&gt;&lt;Table&gt;current&lt;/Table&gt;&lt;Cols&gt;Server&lt;/Cols&gt;"/>
+	</object>
+	<object name="N22" class="com.sl.gmsjrtview.obj_function"
+		y="0.0" x="0.0"
+		function="SELLIST"
+		resultName="componentListAllForServer"
+		public="1"
+		description=""
+		s_arg1="All Components"
+		i_arg1="1"
+		i_arg2="0">
+		<vardef varname="t_arg1" dsstring="cache &lt;?xml?&gt;&lt;Cache&gt;ServerComponentStats&lt;/Cache&gt;&lt;Table&gt;current&lt;/Table&gt;&lt;Cols&gt;Component&lt;/Cols&gt;&lt;FCol&gt;Server&lt;/FCol&gt;&lt;FVal&gt;$server&lt;/FVal&gt;"/>
+	</object>
+	<object name="N36" class="com.sl.gmsjrtview.obj_function"
+		y="0.0" x="0.0"
+		function="REFERENCE"
+		resultName="dataCurrentForServerComponent"
+		public="1"
+		description="">
+		<vardef varname="t_arg1" dsstring="cache &lt;?xml?&gt;&lt;Cache&gt;ServerComponentStats&lt;/Cache&gt;&lt;Table&gt;current&lt;/Table&gt;&lt;Cols&gt;*&lt;/Cols&gt;&lt;FCol&gt;Server;Component&lt;/FCol&gt;&lt;FVal&gt;$server;$component&lt;/FVal&gt;"/>
+	</object>
+	<object name="N21" class="com.sl.gmsjrtview.obj_function"
+		y="0.0" x="0.0"
+		function="VALIDSUB"
+		resultName="validateComponent"
+		public="1"
+		description=""
+		s_arg1="$component"
+		i_arg1="0"
+		i_arg2="0">
+		<vardef varname="t_arg1" dsstring="function componentListAllForServer Selector"/>
+	</object>
+	<object name="N2" class="obj_table02"
+		y="29.95" x="46.275"
+		filterProperties=""
+		objWidth="91.75"
+		objHeight="60.125"
+		sortAscendingFlag="0"
+		label="Servers Table"
+		labelTextColor="16"
+		labelTextHeight="1.25"
+		showSortIconFlag="1"
+		autoResizeFlag="0"
+		rowLabelMode="0"
+		sortColumnName="Rate"
+		labelTextFont="7"
+		labelTextAlignX="2"
+		gridHorizontalVisFlag="1"
+		gridVerticalVisFlag="1"
+		bgVisFlag="0"
+		columnProperties="time_stamp:159 Server:75 Component:104 State:75 PID:54 LiveCount:69 CpuUsage:75 MaxMemory:75 HeapSize:75 FreeMemory:75 UsedMemory:75 conn:75 "
+		maxNumberOfRows="100"
+		insertNewRowsAtTopFlag="1"
+		insertNewRowsFlag="0"
+		columnDisplayNames=""
+		borderPixels="8"
+		editDataEnabledFlag="0"
+		drillDownColumnSubs=""
+		columnAlignment=""
+		cellBgColor="0"
+		cellTextColor="16"
+		columnHeaderBgColor="114"
+		columnHeaderTextColor="16"
+		cellTextSize="-1"
+		cellTextFont="1"
+		columnHeaderTextSize="-1"
+		columnHeaderTextFont="1"
+		scrollbarMode="1"
+		tableBgColor="8"
+		columnsToHide=""
+		multiSelectFlag="0"
+		visFlag="1"
+		drillDownSelectMode="0"
+		columnFormat=""
+		rowHeaderEnabledFlag="0"
+		rowHeaderBgColor="114"
+		rowHeaderFilterColorsEnabledFlag="0"
+		rowHeaderTextColor="16"
+		rowHeaderTextFont="1"
+		rowHeaderTextSize="-1"
+		cellBgStripedFlag="0"
+		rowHighlightEnabledFlag="0"
+		indexColumns=""
+		scrollToSelectionFlag="0"
+		columnResizeEnabledFlag="1"
+		tabIndex="0"
+		labelTextAlignY="3"
+		labelMinTabWidth="128"
+		cellBgStripeContrast="1">
+		<vardef varname="valueTable" dsstring="function dataCurrentForServerComponent *"/>
+	</object>
+	<object name="N3" class="obj_c1combobox"
+		y="62.0" x="11.6875"
+		confirm="false"
+		objWidth="19.875"
+		objHeight="2.5"
+		actionCommand=""
+		enabledFlag="1"
+		valueTextFont="1"
+		valueTextSize="12"
+		textEntryEnabledFlag="0"
+		bgColor="-1"
+		visFlag="1"
+		fgColor="-1"
+		tabIndex="0"
+		mouseOverText="">
+		<vardef varname="listValues" dsstring="function serverListAll *"/>
+		<vardef varname="selectedValue" dsstring="local __$server"/>
+		<vardef varname="varToSet" dsstring="local __$server"/>
+	</object>
+	<object name="N4" class="obj_c1combobox"
+		y="62.0" x="33.3125"
+		confirm="false"
+		objWidth="19.875"
+		objHeight="2.5"
+		actionCommand=""
+		enabledFlag="1"
+		valueTextFont="1"
+		valueTextSize="12"
+		textEntryEnabledFlag="0"
+		bgColor="-1"
+		visFlag="1"
+		fgColor="-1"
+		tabIndex="0"
+		mouseOverText="">
+		<vardef varname="listValues" dsstring="function componentListAllForServer *"/>
+		<vardef varname="selectedValue" dsstring="local __$component"/>
+		<vardef varname="varToSet" dsstring="local __$component"/>
+	</object>
+	<object name="N7" class="obj_text01"
+		y="65.625" x="4.125"
+		visFlag="1"
+		label="Servers"
+		labelTextColor="16"
+		rotationAngle="0.0"
+		labelTextHeight="1.2"
+		labelTextFont="7"
+		labelTextAlignX="2"
+		labelTextAlignY="3">
+	</object>
+	<object name="N8" class="obj_text01"
+		y="65.125" x="27.875"
+		visFlag="1"
+		label="Components"
+		labelTextColor="16"
+		rotationAngle="0.0"
+		labelTextHeight="1.2"
+		labelTextFont="7"
+		labelTextAlignX="2"
+		labelTextAlignY="3">
+	</object>
+</rtview>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<rtview xmlns="www.sl.com" version="3.41">
+	<model file="com.sl.gmsjrtview.m_basemodel"
+		width="736" height="544"
+		dockFillRows="1" dockFillColumns="0"
+		bgColor="8"
+		bg3dFlag="0"
+		bgBorderFlag="1"
+		bgGradientMode="1"
+		bgGradientColor2="0"
+		bgBorderColor="7"
+		resizeWidthMin="0"
+		resizeHeightMin="0"
+		rtvRefreshInterval="">
+	</model>
+	<object name="N1" class="com.sl.gmsjcacheds.obj_cache_table"
+		y="0.0" x="0.0"
+		resetTrigger=""
+		valueTableCount="1"
+		cacheName="ServerComponentStats"
+		maxNumberOfHistoryRows="100000"
+		indexColumnNames="Server;Component"
+		timestampColumnName="time_stamp"
+		historyTimeSpan=""
+		allowDuplicatesInHistoryFlag="1"
+		quoteColumnNamesFlag="1"
+		compactionType="0"
+		description=""
+		condenseRowsFlag="0"
+		historyColumnNames=""
+		rowExpirationMode="0"
+		rowExpirationTime=""
+		rowExpirationTimeForDelete=""
+		rowExpiredColumnName="Expired"
+		maxNumberOfCurrentRows="">
+		<vardef varname="valueTable" dsstring="mysimds {Tablename=ServerComponentStats mode=Asynchronous+Data __fmt=av1 __daum=1}"/>
+	</object>
+</rtview>

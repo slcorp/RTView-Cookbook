@@ -1,0 +1,786 @@
+<?xml version="1.0"?>
+<dataset xmlns="www.sl.com" version="1.0">
+<table key="AutomatedServiceTable">
+	<tc name="Timestamp"
+		 type="date"
+		 index="false"/>
+	<tc name="Status"
+		 type="string"
+		 index="false"/>
+	<tc name="capacityFlag"
+		 type="boolean"
+		 index="false"/>
+	<tc name="Call Rate"
+		 type="double"
+		 index="false"/>
+	<tc name="Error Rate"
+		 type="double"
+		 index="false"/>
+	<tc name="Active Calls"
+		 type="int"
+		 index="false"/>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>online</td>
+		<td>false</td>
+		<td>50.0</td>
+		<td>21.22</td>
+		<td>1</td>
+	</tr>
+</table>
+<table key="RegionTable">
+	<tc name="Timestamp"
+		 type="date"
+		 index="false"/>
+	<tc name="Name"
+		 type="string"
+		 index="false"/>
+	<tc name="Avg Hold Time"
+		 type="double"
+		 index="false"/>
+	<tc name="Avg Call Rate"
+		 type="double"
+		 index="false"/>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>North</td>
+		<td>16.09</td>
+		<td>32.44</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>South</td>
+		<td>9.25</td>
+		<td>6.03</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>East</td>
+		<td>11.53</td>
+		<td>11.72</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>West</td>
+		<td>5.57</td>
+		<td>26.89</td>
+	</tr>
+</table>
+<table key="AgentTable">
+	<tc name="Timestamp"
+		 type="date"
+		 index="false"/>
+	<tc name="Name"
+		 type="string"
+		 index="false"/>
+	<tc name="Region"
+		 type="string"
+		 index="false"/>
+	<tc name="Call Rate"
+		 type="double"
+		 index="false"/>
+	<tc name="Active Calls"
+		 type="int"
+		 index="false"/>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 0</td>
+		<td>South</td>
+		<td>14.43</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 1</td>
+		<td>North</td>
+		<td>23.98</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 2</td>
+		<td>North</td>
+		<td>20.42</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 3</td>
+		<td>North</td>
+		<td>16.04</td>
+		<td>8</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 4</td>
+		<td>West</td>
+		<td>32.39</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 5</td>
+		<td>West</td>
+		<td>23.38</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 6</td>
+		<td>East</td>
+		<td>6.19</td>
+		<td>6</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 7</td>
+		<td>North</td>
+		<td>15.78</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 8</td>
+		<td>South</td>
+		<td>10.95</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 9</td>
+		<td>West</td>
+		<td>12.06</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 10</td>
+		<td>South</td>
+		<td>9.48</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 11</td>
+		<td>North</td>
+		<td>23.11</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 12</td>
+		<td>West</td>
+		<td>19.32</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 13</td>
+		<td>East</td>
+		<td>18.23</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 14</td>
+		<td>West</td>
+		<td>15.41</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 15</td>
+		<td>South</td>
+		<td>16.53</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 16</td>
+		<td>East</td>
+		<td>17.63</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 17</td>
+		<td>North</td>
+		<td>9.07</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 18</td>
+		<td>East</td>
+		<td>9.67</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 19</td>
+		<td>South</td>
+		<td>12.55</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 20</td>
+		<td>East</td>
+		<td>23.86</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 21</td>
+		<td>East</td>
+		<td>9.94</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 22</td>
+		<td>West</td>
+		<td>25.24</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 23</td>
+		<td>South</td>
+		<td>6.94</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 24</td>
+		<td>North</td>
+		<td>17.04</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 25</td>
+		<td>East</td>
+		<td>13.43</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 26</td>
+		<td>North</td>
+		<td>18.32</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 27</td>
+		<td>South</td>
+		<td>22.17</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 28</td>
+		<td>North</td>
+		<td>19.25</td>
+		<td>6</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 29</td>
+		<td>South</td>
+		<td>22.92</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 30</td>
+		<td>North</td>
+		<td>20.79</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 31</td>
+		<td>West</td>
+		<td>16.09</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 32</td>
+		<td>East</td>
+		<td>23.74</td>
+		<td>6</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 33</td>
+		<td>West</td>
+		<td>14.89</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 34</td>
+		<td>North</td>
+		<td>8.07</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 35</td>
+		<td>North</td>
+		<td>11.9</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 36</td>
+		<td>East</td>
+		<td>11.73</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 37</td>
+		<td>East</td>
+		<td>10.04</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 38</td>
+		<td>South</td>
+		<td>26.22</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 39</td>
+		<td>West</td>
+		<td>12.63</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 40</td>
+		<td>West</td>
+		<td>13.26</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 41</td>
+		<td>South</td>
+		<td>13.75</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 42</td>
+		<td>North</td>
+		<td>9.12</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 43</td>
+		<td>East</td>
+		<td>14.6</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 44</td>
+		<td>North</td>
+		<td>17.51</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 45</td>
+		<td>West</td>
+		<td>29.96</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 46</td>
+		<td>North</td>
+		<td>13.17</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 47</td>
+		<td>East</td>
+		<td>26.65</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 48</td>
+		<td>East</td>
+		<td>14.61</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 49</td>
+		<td>North</td>
+		<td>15.36</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 50</td>
+		<td>West</td>
+		<td>16.57</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 51</td>
+		<td>North</td>
+		<td>23.26</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 52</td>
+		<td>East</td>
+		<td>11.1</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 53</td>
+		<td>East</td>
+		<td>14.57</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 54</td>
+		<td>South</td>
+		<td>22.07</td>
+		<td>7</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 55</td>
+		<td>South</td>
+		<td>10.44</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 56</td>
+		<td>West</td>
+		<td>15.49</td>
+		<td>6</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 57</td>
+		<td>East</td>
+		<td>7.69</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 58</td>
+		<td>West</td>
+		<td>19.87</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 59</td>
+		<td>East</td>
+		<td>25.41</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 60</td>
+		<td>South</td>
+		<td>18.85</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 61</td>
+		<td>North</td>
+		<td>18.85</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 62</td>
+		<td>North</td>
+		<td>12.17</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 63</td>
+		<td>North</td>
+		<td>24.87</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 64</td>
+		<td>West</td>
+		<td>9.63</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 65</td>
+		<td>East</td>
+		<td>19.1</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 66</td>
+		<td>North</td>
+		<td>21.37</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 67</td>
+		<td>North</td>
+		<td>16.59</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 68</td>
+		<td>East</td>
+		<td>21.15</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 69</td>
+		<td>West</td>
+		<td>8.63</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 70</td>
+		<td>North</td>
+		<td>16.69</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 71</td>
+		<td>East</td>
+		<td>18.18</td>
+		<td>6</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 72</td>
+		<td>South</td>
+		<td>20.38</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 73</td>
+		<td>South</td>
+		<td>14.55</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 74</td>
+		<td>East</td>
+		<td>19.56</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 75</td>
+		<td>East</td>
+		<td>25.55</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 76</td>
+		<td>South</td>
+		<td>21.88</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 77</td>
+		<td>East</td>
+		<td>15.4</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 78</td>
+		<td>North</td>
+		<td>17.77</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 79</td>
+		<td>North</td>
+		<td>17.02</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 80</td>
+		<td>East</td>
+		<td>8.74</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 81</td>
+		<td>West</td>
+		<td>21.53</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 82</td>
+		<td>West</td>
+		<td>16.35</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 83</td>
+		<td>North</td>
+		<td>29.52</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 84</td>
+		<td>North</td>
+		<td>16.74</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 85</td>
+		<td>East</td>
+		<td>15.27</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 86</td>
+		<td>West</td>
+		<td>30.45</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 87</td>
+		<td>South</td>
+		<td>29.78</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 88</td>
+		<td>West</td>
+		<td>15.86</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 89</td>
+		<td>North</td>
+		<td>19.65</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 90</td>
+		<td>West</td>
+		<td>10.62</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 91</td>
+		<td>West</td>
+		<td>11.42</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 92</td>
+		<td>North</td>
+		<td>11.98</td>
+		<td>2</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 93</td>
+		<td>West</td>
+		<td>12.2</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 94</td>
+		<td>South</td>
+		<td>14.3</td>
+		<td>4</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 95</td>
+		<td>East</td>
+		<td>22.51</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 96</td>
+		<td>South</td>
+		<td>20.05</td>
+		<td>5</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 97</td>
+		<td>North</td>
+		<td>12.51</td>
+		<td>1</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 98</td>
+		<td>East</td>
+		<td>17.51</td>
+		<td>3</td>
+	</tr>
+	<tr name="">
+		<td>Jul 8, 2016 9:51:13 AM PDT</td>
+		<td>Agent 99</td>
+		<td>East</td>
+		<td>26.85</td>
+		<td>2</td>
+	</tr>
+</table>
+</dataset>

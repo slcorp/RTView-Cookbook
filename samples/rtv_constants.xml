@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<dataset>
+<table key="AllSourceSelector">
+  <tc name="SelectorName" type="string"/>
+  <tc name="Selector" type="string"/>
+  <tc name="Value" type="string"/>
+  <tr name="">
+      <td value="All Selectors"/>
+      <td value="*"/>
+      <td value="*"/>
+  </tr>
+</table>
+
+<table key="AllInstanceSelector">
+  <tc name="SelectorName" type="string"/>
+  <tc name="Selector" type="string"/>
+  <tc name="hostName" type="string"/>
+  <tc name="port" type="string"/>
+  <tr name="">
+      <td value="All Instances"/>
+      <td value="*:*"/>
+      <td value="*"/>
+      <td value="*"/>
+  </tr>
+</table>
+
+<table key="UserTimeRanges">
+  <tc name="RangeName" type="string"/>
+  <tc name="TimeRange" type="int"/>
+  <tc name="TimeShift" type="int"/>
+  <tc name="MajorDivisions" type="int"/>
+  <tc name="MinorDivisions" type="int"/>
+  <tc name="DateFormat" type="string"/>
+  <tc name="DatePart" type="string"/>
+  <tr name="-1">
+      <td value="All Data"/>
+      <td value="-1"/>
+      <td value="-60"/>
+      <td value="8"/>
+      <td value="2"/>
+      <td value="HH:mm"/>
+      <td value="d"/>
+  </tr>
+  <tr name="0">
+      <td value="2 Mins"/>
+      <td value="120"/>
+      <td value="5"/>
+      <td value="12"/>
+      <td value="2"/>
+      <td value="HH:mm"/>
+      <td value="s"/>
+  </tr>
+  <tr name="0">
+      <td value="5 Mins"/>
+      <td value="300"/>
+      <td value="15"/>
+      <td value="10"/>
+      <td value="2"/>
+      <td value="HH:mm"/>
+      <td value="s"/>
+  </tr>
+  <tr name="0">
+      <td value="20 Mins"/>
+      <td value="1200"/>
+      <td value="60"/>
+      <td value="8"/>
+      <td value="2"/>
+      <td value="HH:mm"/>
+      <td value="m"/>
+  </tr>
+  <tr name="0">
+      <td value="1 Hour"/>
+      <td value="3600"/>
+      <td value="300"/>
+      <td value="6"/>
+      <td value="2"/>
+      <td value="HH:mm"/>
+      <td value="m"/>
+  </tr>
+  <tr name="1">
+      <td value="4 Hours"/>
+      <td value="14400"/>
+      <td value="600"/>
+      <td value="8"/>
+      <td value="2"/>
+      <td value="HH:mm"/>
+      <td value="h"/>
+  </tr>
+  <tr name="1">
+      <td value="8 Hours"/>
+      <td value="28800"/>
+      <td value="900"/>
+      <td value="8"/>
+      <td value="2"/>
+      <td value="HH:mm"/>
+      <td value="h"/>
+  </tr>
+  <tr name="1">
+      <td value="24 Hours"/>
+      <td value="86400"/>
+      <td value="1800"/>
+      <td value="12"/>
+      <td value="2"/>
+      <td value="MM/dd HH:mm"/>
+      <td value="h"/>
+  </tr>
+  <tr name="1">
+      <td value="Last 2 Days"/>
+      <td value="172800"/>
+      <td value="3600"/>
+      <td value="16"/>
+      <td value="2"/>
+      <td value="MM/dd HH:mm"/>
+      <td value="d"/>
+  </tr>
+  <tr name="1">
+      <td value="Last 7 Days"/>
+      <td value="604800"/>
+      <td value="3600"/>
+      <td value="14"/>
+      <td value="2"/>
+      <td value="MM/dd HH:mm"/>
+      <td value="d"/>
+  </tr>
+</table>
+
+<table key="NodeUptimeBuckets">
+    <tc name="Name" type="string"/>
+    <tc name="Sort" type="int"/>
+    <tr name="0">
+      <td value="Seconds"/>
+      <td value="1"/>
+    </tr>
+    <tr name="0">
+      <td value="Minutes"/>
+      <td value="2"/>
+    </tr>
+    <tr name="0">
+      <td value="Hours"/>
+      <td value="3"/>
+    </tr>
+    <tr name="0">
+      <td value="Days"/>
+      <td value="4"/>
+    </tr>
+    <tr name="0">
+      <td value="Weeks"/>
+      <td value="5"/>
+    </tr>
+    <tr name="0">
+      <td value="Months"/>
+      <td value="6"/>
+    </tr>
+</table>
+
+<table key="HeatmapLegend">
+  <tc name="ID" type="string"/>
+  <tc name="Size" type="double"/>
+  <tc name="Color" type="double"/>
+    <tr name="">
+      <td value="A"/>
+      <td value="1"/>
+      <td value="0"/>
+    </tr>
+    <tr name="">
+      <td value="B"/>
+      <td value="1"/>
+      <td value="1"/>
+    </tr>
+    <tr name="">
+      <td value="C"/>
+      <td value="1"/>
+      <td value="2"/>
+    </tr>
+    <tr name="">
+      <td value="D"/>
+      <td value="1"/>
+      <td value="3"/>
+    </tr>
+    <tr name="">
+      <td value="E"/>
+      <td value="1"/>
+      <td value="4"/>
+    </tr>
+    <tr name="">
+      <td value="F"/>
+      <td value="1"/>
+      <td value="5"/>
+    </tr>
+    <tr name="">
+      <td value="G"/>
+      <td value="1"/>
+      <td value="6"/>
+    </tr>
+    <tr name="">
+      <td value="H"/>
+      <td value="1"/>
+      <td value="7"/>
+    </tr>
+    <tr name="">
+      <td value="I"/>
+      <td value="1"/>
+      <td value="8"/>
+    </tr>
+    <tr name="">
+      <td value="J"/>
+      <td value="1"/>
+      <td value="9"/>
+    </tr>
+    <tr name="">
+      <td value="K"/>
+      <td value="1"/>
+      <td value="10"/>
+    </tr>
+</table>
+
+</dataset>
