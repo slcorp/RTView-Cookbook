@@ -29,9 +29,9 @@ Table filtered by multiple list boxes
 ##Pattern 3 - Trend Current and Historical Data
 Trend filtered by multiple list boxes
 ##Pattern 4 - Show Multiple Trends of Synchronous Data
-NOT INCLUDED
+NOT APPROVED
 ##Pattern 5 - Show Multiple Trends of Asynchronous Data
-NOT INCLUDED
+NOT APPROVED
 ##Pattern 6 - Show Bar Graph to Compare values   
 Bar graph filtered by list box
 ##Pattern 7 - Show Bar Graph for Group Total Values   
@@ -39,13 +39,13 @@ Bar graph group by sum of total values
 ##Pattern 8 - Show Bar Graph for Group by Average Total Values   
 Bar graph group by average of total values
 ##Pattern 9 - Heatmap
-NOT INCLUDED
+NOT APPROVED
 ##Pattern 10 - Show Trend Chart of Multiple Trends      
 Multiple trends from synchronous data
 ##Pattern 11 - Show Trend Chart of Multiple Trends      
 Multiple trends from asynchronous data
 ##Pattern 12 - Trend time range
-NOT INCLUDED
+NOT APPROVED
 
 
 
