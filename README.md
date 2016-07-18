@@ -24,12 +24,17 @@ This is done by adding "mysimdata.jar" to RTV_USERPATH as a global environment v
 
 ##Pattern 1 - Create and Display a Current Value Table
 
-*Goal*	A common requirement for many is the need to display current values from a data source asynchronously by creating a cache of the data. This is sometimes referred to as a current value table.
+*Goal*	
+
+A common requirement for many is the need to display current values from a data source asynchronously by creating a cache of the data. This is sometimes referred to as a current value table.
  	 
-*Challenge*	We are receiving asynchronous data - data that comes in at different times. If a cache is not used, then this data would be seen as it comes in - one line at a time. By using the RTView caching solution to cache the data we are able to visualize all of the lines in tabular form, each with a timestamp,
+*Challenge*	
+
+We are receiving asynchronous data - data that comes in at different times. If a cache is not used, then this data would be seen as it comes in - one line at a time. By using the RTView caching solution to cache the data we are able to visualize all of the lines in tabular form, each with a timestamp,
  	 
 *How To	Capture and Cache Data*
-1. First create the cache and populate it with asynchronous data. This is done by using "Tools->Caches..." and clicking on "Add". Name the cache something pertinent, in this case ServerComponentStats will do, and click on "OK". Please see the prelimary notes, step 3 under RTView Display Builder, for more information on this.
+
+First create the cache and populate it with asynchronous data. This is done by using "Tools->Caches..." and clicking on "Add". Name the cache something pertinent, in this case ServerComponentStats will do, and click on "OK". Please see the prelimary notes, step 3 under RTView Display Builder, for more information on this.
 
 2. With the cache selected in the "Caches" dialog we opened above, attach data to the cache by going to "Object Properties->value Table" and right clicking. Make certain the data source is recognized by RTView Display Builder as described in the preliminary notes (item 2 under RTView Display Builder). This will bring up a menu from which you want to select Attach to Data.
 
