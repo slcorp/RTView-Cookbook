@@ -7,8 +7,8 @@ This cookbook contains a number of "recipes" (referred to herein as "Patterns") 
 The intention of the cookbook is to provide a reference to these tasks while clearly showing how they can be accomplished by an end user of any experience level. Completed demos are provided for the cookbook, but we suggest that the recipes are followed as they contain a great deal of "best practice" information and clarify steps that are sometimes subtle enough to be overlooked that are important to a properly running visualization.
 
 # System Requirements
-*Java 1.5+
-*RTView Core 6.x
+* RTView Core 6.x
+* Java 1.5+
 
 # Downloads
 ## RTView Core: http://sl.com/evaluation-request/
