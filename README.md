@@ -10,9 +10,9 @@ The intention of the cookbook is to provide a reference to these tasks while cle
 * RTView Core 6.x
 * Java 1.5+
 
-# Downloads
-## RTView Core: http://sl.com/evaluation-request/
-## Java: http://www.oracle.com/technetwork/java/javase/downloads/index.html
+# Useful Links
+## Download RTView: http://sl.com/evaluation-request/
+## Download Java: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 # Using The Cookbook
 
