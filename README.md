@@ -69,16 +69,14 @@ We may want to see all of the components of a given selected server, or all of t
 
 1. Create the cache as in Pattern 1 and make certain the cache is connected to your data source (Pattern 1, steps 1-6).
 2. Add the table we will be viewing and give it a label (Object Properties, Label->Label), such as "Servers Table".
-
 3. Add a drop down menu for Servers - this will allow us to select a specific server. A drop down menu control object can be retrieved by going to "Edit->Add..." and then to the "Controls" tab.
-
 4. Add a drop down menu for Components. This menu will be automatically modified by whatever is selected from the Server menu to reflect the components available on a selected server by the functions we will add below.
 
 *Create and Add Variables*
 
 5. Add a variable for servers by going to Tools->Variables. Type in a variable name, in this case we use $server. For the initial default value, use * for "All Servers". Then click on Add.
 
-6.Add a variable for components as well, called in this case $components. As with $server above, set an initial default value of * for All Components and then click on add to add this variable.
+6. Add a variable for components as well, called in this case $components. As with $server above, set an initial default value of * for All Components and then click on add to add this variable.
 
 *Create and Add Functions*
 
