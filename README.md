@@ -20,6 +20,13 @@ Please make certain that the environment variable RTV_USERPATH inlcudes the simu
 
 This is done by adding "mysimdata.jar" to RTV_USERPATH as a global environment variable, or by manually setting RTV_USERPATH from the command line each time the cookbook is used. Mysimdata.jar has been included in each pattern, but if you wish to add it to the lib path then it sohuld be added as a relative path explicitly (e.g. c:\Program Files\RTV_xxx\lib\mysimdata.jar").
 
+# Running the Examples
+1. Install and configure RTView Builder in your local environment. 
+2. Include mysimdata.jar in the RTV_USERPATH as described above. 
+3. Bring up a command window and initialize it (e.g. rtv_init.bat). 
+4. In the command window, type run.bat to run the Builder with the simulator. The simulator supplies the necessary simulated data for the displays. 
+5. Open up the displays listed below to see it working in the Builder preview window. 
+
 # Patterns
 
 ##Pattern 1 - Create and Display a Current Value Table
