@@ -110,7 +110,59 @@ Here is a chart of the relationship function relationships to objects, data and 
 13. Attach data to our table using it's Object properties. Under Data->valueTable, attach to the function we created called dataCurrentServerComponent and use All (*) Columns. Please note that we attach this table to a Reference function rather than directly to the cache because the use of a reference function in later patterns becomes important. Using a reference function this way allows for a convenient and modular location to filter data.
 
 ##Pattern 3 - Trend Current and Historical Data
-Trend filtered by multiple list boxes
+*Goal*	
+
+We want to see a trend chart that reflects the historical data coming in on a specific component of one server and regularly updates to display current data coming in.
+ 	 
+*Challenge*	
+
+Show the history of only one component on one server at a time, and provide two drop down menus to choose which server and component history will be displayed. In this example, seeing all servers or components is not an option.
+Optimise the data so that the initial data is loaded only once rather than reloaded over and over. We then only need to load new data coming in to update the trend chart.
+
+Set an initial default for the server and component values.
+
+How To	Several characteristics of this pattern are similar to Pattern 2. For example,
+
+1. Create the cache as in pattern 1 and make certain the cache is connected to your data source. Make certain that the cache has a history for this pattern as well. This is done by adding a value to the cache property of "maxNumberOfHistoryRows". For this pattern we set it to an arbitrarily high value of 10000.
+
+2. Add the trend graph we will be viewing and give it a label (Object Properties, Label->Label), such as "Server Component Table". For this trend graph set traceCounts to 1 (as we are only looking at one trend) and the Time Range and Time Shift properties to -1.
+
+3. Add a drop down menu for Servers - this allows for the selection of a specific server.
+
+4. Add a drop down menu for Components. This menu will be modified by whatever is selected from the Server menu to reflect the components available on a selected server by the functions we will add below.
+
+*Create and Add Variables*
+
+5. Add a variable for servers by going to Tools->Variables. Type in a variable name, in this case we use $server.
+
+6. Add a variable for components as well, called in this case $components.
+
+*Create and Add Functions*
+
+In Tools->Functions, add the functions that will allow us to filter the Components menu based on the selection in the Servers menu.
+
+7. dataHistoryForServerComponent - The first function is a pointer to the cache. Call this (in this examples case) dataHistoryForServerComponent. It's Function Type is "Reference". Right click on Table, Attach to Data->Cache and select the cache you created in step 1. Because we are looking at the historical data, and not the current data, set Table to "history". We will set Column(s) to "time_stamp;CpuUsage;". In order to optimise the data that comes in so that the entire history is not sent with every update but only the most recent history is, check the "Update Once" button. Set Filter Rows to "Basic", Filter Column to "Server;Component" and Filter Value to "$server;$component".
+
+8.dataCurrentForServerComponent - Create another pointer to the cache that is very similar to the last function, except that it will point to the current data coming in rather than the history. Because of this the previous function (dataHistoryForServerComponent) can simply be copied (the new function will be named dataCurrentForServerComponent) and "History" can be changed to "Current". As with the last function, the Function Type is "Reference". Right click on Table, Attach to Data->Cache and select the cache you created in step 1.
+
+Because we are looking at the historical data, and not the current data, set Table to "history". We will set Column(s) to "time_stamp;CpuUsage;". In order to optimise the data that comes in so that the entire history is not sent with every update but only the most recent history is, check the "Update Once" button. We will also set Filter Rows to "Basic", Filter Column to "Server;Component" and Filter Value to "$server;$component".
+
+9. serverList - Add a function that will be utilized to populate the list of servers in the Servers drop down menu. Call this function serverList and give it a Function Type of "Create Selector List". We are going to attach the cache to this function (Table->Attach to Data->Cache) and use "Server" for Column(s). After clicking on OK, Sort Values for serverList should be set to 1 and Sort Descending should be set to 0. 
+
+10. componentListForServer - Add a function that will be utilized to populate the list of components in the Components drop down menu. Call this function componentListForServer and give it a Function Type of "Create Selector List". Attach this function to the cache data and use "Component" in Column(s). Set Filter Rows to Basic, Filter Column to "Server" and Filter Value to the variable $server. After selecting OK set Sort Values to 1 and Sort Descending should be set to 0.
+
+11. validateServer - In order to make certain we set a proper initial default value in the server menu use a function called "validateServer" and give it a type of "Validate Substitution". The Substitution String should be set to the $server variable, and this function should be attached to the componentListAllForServer function and given Column(s) of Selector.
+
+12. validateComponent - It is important to validate the values in the Component menu. When a new server is selected, the Component menu might contain data that is out of sync with the currently selected Server. Use a function called "validateComponent" and give it a type of "Validate Substitution". The Substitution String should be set to the $component variable, and this function should be attached to the componentListAllForServer function and given Column(s) of Selector.
+
+*Attach Data to Objects*
+
+13. Attach our filtered data to our objects. Starting with the Servers drop down menu, using it's Object Properties we set Data->ListValues to the function we created in step 8 called serverList (which gives us all the servers), and we set selectedValue to our variable $server as well as setting varToSet to $server.
+
+14. Set the Component drop down menus Object Properties. Set Data->ListValues to the function componentList, and we set selectedValue to our variable $component as well as setting varToSet to $component.
+
+15. Attach data to our trend graph using it's Object properties. Under Trace 01->trace1Value attach to data->function to dataCurrentForServerComponent and use time_stamp and Component for Column(s) (in that order). Under Trace 01->trace1ValueTable, attach to the function dataHistoryForServerComponent. Use "time_stamp" and "CpuUsage" for columns, in that order.
+
 ##Pattern 4 - Show Multiple Trends of Synchronous Data
 NOT APPROVED
 ##Pattern 5 - Show Multiple Trends of Asynchronous Data
