@@ -252,24 +252,39 @@ There is a need for a graphics object  using a grid of colored rectangles to vis
 Show how to create  a heatmap and attach it to the columns “CpuUsage” and “Memory Usage” for the index columns, “Server” and  “Component”.   Also add a slider that sets the maximum CpuUsage that can be displayed  on the heatmap. 
 
 *How To*	
+
 A Composite object is used in this pattern.  Composite objects are introduced in  Pattern 4. 
+
 1. Add a heatmap. In the Builder bring up the Object Palette dialog by choosing Edit->Add.  Choose the Graphs tab and bring a heatmap into the Builder’s workspace.
+
 2. Add a slider to the display above the heatmap. From the Object Palette choose the Controls tab and bring a obj_c1scale into the Builder’s workspace. The slider will set the value of CpuUsage.
+
 3. Again from the Object Palette Controls tab, bring in an obj_c1button into the Builders workspace and place it in the upper right side of the display.  Pressing the button will create a new window containing all the graphics created.
+
 4. Add a composite object  to create the color legend that works in conjunction with the slider.  
-Create and Add Variables
+
+*Create and Add Variables*
+
 5. Add the  variable  $valueMax.  Provide an initial value to $valueMax of  “15.0”. $valueMax is set as the slider is moved from its min value to its max value. 
 
 *Create and Add Functions*
+
 In Tools->Functions, add the functions to sort the ServerComponentStats cache and restrict the number of columns to only two.
+
 6. dataCurrentForServerComponentCpuUsage - The first function is a pointer to the cache. Call this (in this examples case) dataCurrentForServerComponentCpuUsage. It's Function Type is "Reference". Right click on Table, Attach to Data->Cache and select the cache you created in pattern3, ServerComponentStats. Because we are looking at the current data, set Table to "current". We will set Column(s) to "Server;Component;CpuUsage;UsedMemory;".  
+
 7.  sortDataCurrentForServerComponentCpuUsage - This Function Type is "Sort Table".  Right click on Table, Attach to Data->Function and select the Function Name  dataCurrentForServerComponentCpuUsage  and Columns  *. This is the function created in step 6. 
 
 *Attach Data to Objects*
+
 8. The heatmap’s Object Properties-> Data valueTable is set to the Function dataCurrentForServerComponentCpuUsage.   There are 2 more Object Properties in the Data section of note: nodeIndexColumnNames and sizeValueGroupType.   From our standard documentation, this explanation of how it works. “ Tabular data attached to the valueTable property must contain one or more index columns and at least one data column. The heat map will display one level of nodes for each index column specified. Use the nodeIndexColumnNames property to specify column names. The first non-index numeric data column is used to control the size of the node. The second non-index numeric data column is used to control the color of the node.”
+
 The nodeIndexColumnNames are set to “Server” and “Component”. The data coming in from the function dataCurrentForServerComponentCpuUsage contains 4 columns, the first two are index columns Server and Component, the last two are numeric columns UsedMemory and CpuUsage.  The numeric values of  UsedMemory will control the size of the rectangle node and the numeric value of CpuUsage will control the color of the node. The sizeValueGroupType is set to “sum”. 
+
 Note: Usually with using  group by functionality, several rows of data must be aggregated as either “sum”, “average”, “min” or “max”. But in this case the data using the indices “Server” and “Component”  comes out as a single row for each combination of the 2 indices. No grouping is done or needed.
+
 9. The slider (obj_c1scale) needs to have these Object Properties set. Data->value and Data->varToSet  need to Attach to Data-> Variable  $valueMax.  Set the minimum and maximum values of the slider  Data->valueMax : 100.0  and Data->valueMin: 0.0.  By moving the slider the  numeric value set to the variable $valueMax will range from 0.0 to 100.0.
+
 10. The heatmap needs to set some more Object Properties. These properties set the range of colors.  Data->ColorValueMin 0.0 and Data->ColorValueMax is set to the variable $valueMax.  Data Format-> maxColor and Data Format-> minColor are set with a color chooser by clicking on “…” at the very right side of the row.
  
 11.  The obj_c1button in the top right hand corner of the display  will let the user drilldown to a new window containg the heatmap and slider.   The Object Property  Interaction->actionCommand  will bring up the “Define System Command” dialog. Choose “Drill Down or Set Substitution”, then choose “Edit Drilldown Target”.                                                                                          
@@ -277,7 +292,9 @@ Note: Usually with using  group by functionality, several rows of data must be a
 12.  The composite object to be  added to the  display is pre-built. From the Builder  choose File->Add to bring up the Object Palette.  From the Composite Tab, choose a composite object and bring it into the work area.  From the Object Properties of that composite object, set Composite->rtvName  to sub_hmlegend  by choosing that name from the list box. Set the Object Properties Composite->maxValue to $vaultMax  and Composite->minValue to 0.0. This is what should appear on the display
  
 *Result*
-The heat map is a very direct visual alert system.  Red indicates an Alert state, Green indicates that there is no alert, and a gradient of colors in between the two extremes. The default value for CpuUsage is set to 15. Thus a red, alert state occurs when CpuUsage is 15 (15%). If we move the slider to higher CpuUsage, say 50 (50%), Fewer Red, Alert conditions will result. Pressing the upper right hand “New Window” button  will bring up a new window containing the heat map that can be set independently of the original window.  In this example the original window is set to CpuUsage 5, and the New Window to CpuUsage 75.
+The heat map is a very direct visual alert system.  Red indicates an Alert state, Green indicates that there is no alert, and a gradient of colors in between the two extremes. The default value for CpuUsage is set to 15. Thus a red, alert state occurs when CpuUsage is 15 (15%). 
+
+If we move the slider to higher CpuUsage, say 50 (50%), Fewer Red, Alert conditions will result. Pressing the upper right hand “New Window” button  will bring up a new window containing the heat map that can be set independently of the original window.  In this example the original window is set to CpuUsage 5, and the New Window to CpuUsage 75.
  
 ##Pattern 10 - Show Trend Chart of Multiple Trends      
 Multiple trends from synchronous data
