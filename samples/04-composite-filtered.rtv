@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<rtview xmlns="www.sl.com" version="3.4">
+	<model file="com.sl.gmsjrtview.m_basemodel"
+		width="736" height="544"
+		dockFillRows="1" dockFillColumns="0"
+		bgColor="8"
+		bg3dFlag="0"
+		bgBorderFlag="1"
+		bgGradientMode="1"
+		bgGradientColor2="0"
+		bgBorderColor="7"
+		resizeWidthMin="0"
+		resizeHeightMin="0"
+		rtvRefreshInterval="">
+	</model>
+	<localvar name="__$server" initValue="" dataType="scalar"/>
+	<object name="N22" class="com.sl.gmsjrtview.obj_function"
+		y="0.0" x="0.0"
+		function="SELLIST"
+		resultName="componentListAllForServer"
+		public="1"
+		description=""
+		s_arg1="All Components"
+		i_arg1="1"
+		i_arg2="0">
+		<vardef varname="t_arg1" dsstring="cache &lt;?xml?&gt;&lt;Cache&gt;ServerComponentStats&lt;/Cache&gt;&lt;Table&gt;current&lt;/Table&gt;&lt;Cols&gt;Component&lt;/Cols&gt;&lt;FCol&gt;Server&lt;/FCol&gt;&lt;FVal&gt;$server&lt;/FVal&gt;"/>
+	</object>
+	<object name="N36" class="com.sl.gmsjrtview.obj_function"
+		y="0.0" x="0.0"
+		function="REFERENCE"
+		resultName="dataCurrentForServerComponent"
+		public="1"
+		description="">
+		<vardef varname="t_arg1" dsstring="cache &lt;?xml?&gt;&lt;Cache&gt;ServerComponentStats&lt;/Cache&gt;&lt;Table&gt;current&lt;/Table&gt;&lt;Cols&gt;*&lt;/Cols&gt;&lt;FCol&gt;Server;Component&lt;/FCol&gt;&lt;FVal&gt;$server;$component&lt;/FVal&gt;"/>
+	</object>
+	<object name="N21" class="com.sl.gmsjrtview.obj_function"
+		y="0.0" x="0.0"
+		function="VALIDSUB"
+		resultName="validateComponent"
+		public="1"
+		description=""
+		s_arg1="$component"
+		i_arg1="0"
+		i_arg2="0">
+		<vardef varname="t_arg1" dsstring="function componentListAllForServer Selector"/>
+	</object>
+	<object name="N9" class="com.sl.gmsjrtview.obj_function"
+		y="0.0" x="0.0"
+		function="SELLIST"
+		resultName="serverList"
+		public="1"
+		description=""
+		s_arg1=""
+		i_arg1="1"
+		i_arg2="0">
+		<vardef varname="t_arg1" dsstring="cache &lt;?xml?&gt;&lt;Cache&gt;ServerComponentStats&lt;/Cache&gt;&lt;Table&gt;current&lt;/Table&gt;&lt;Cols&gt;Server&lt;/Cols&gt;"/>
+	</object>
+	<object name="N3" class="obj_c1combobox"
+		y="62.0" x="11.6875"
+		confirm="false"
+		objWidth="19.875"
+		objHeight="2.5"
+		actionCommand=""
+		enabledFlag="1"
+		valueTextFont="1"
+		valueTextSize="12"
+		textEntryEnabledFlag="0"
+		bgColor="-1"
+		visFlag="1"
+		fgColor="-1"
+		tabIndex="0"
+		mouseOverText="">
+		<vardef varname="selectedValue" dsstring="local __$server"/>
+		<vardef varname="listValues" dsstring="function serverList"/>
+		<vardef varname="varToSet" dsstring="local __$server"/>
+	</object>
+	<object name="N7" class="obj_text01"
+		y="65.625" x="4.125"
+		visFlag="1"
+		label="Servers"
+		labelTextColor="16"
+		rotationAngle="0.0"
+		labelTextHeight="1.2"
+		labelTextFont="7"
+		labelTextAlignX="2"
+		labelTextAlignY="3"
+		webLabelFlag="0">
+	</object>
+	<object name="N135" class="obj_composite"
+		y="38.1875" x="44.275"
+		substitutions="COMPONENT-1"
+		rtvName="myComposite"
+		visFlag="1"
+		label="Composite Object"
+		labelTextColor="16"
+		labelTextFont="7"
+		labelTextAlignX="2"
+		labelTextHeight="1.25"
+		resizeMode="0"
+		bgVisFlag="1"
+		borderPixels="8"
+		bgColor="8"
+		bgGradientMode="1"
+		objWidth="42.0"
+		objHeight="21.3125"
+		bgEdgeWidth="1.0"
+		bgStyle="1"
+		bgShadowFlag="0"
+		labelTextAlignY="3"
+		bgBorderFlag="1"
+		labelMinTabWidth="128"
+		bgGradientColor2="0"
+		bgRaisedFlag="1"
+		bgOpaqueFlag="1"
+		bgBorderColor="16"
+		timeRange="60">
+		<vardef varname="server" dsstring="local __$server"/>
+	</object>
+</rtview>
