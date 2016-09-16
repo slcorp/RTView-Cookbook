@@ -276,6 +276,7 @@ Bar graph filtered by list box
 Bar graph group by sum of total values
 ##Pattern 8 - Show Bar Graph for Group by Average Total Values   
 Bar graph group by average of total values
+
 ##Pattern 9 - Heatmap
 
 *Goal*	
@@ -335,9 +336,6 @@ If we move the slider to higher CpuUsage, say 50 (50%), Fewer Red, Alert conditi
 Multiple trends from synchronous data
 ##Pattern 11 - Show Trend Chart of Multiple Trends      
 Multiple trends from asynchronous data
-##Pattern 12 - Trend time range
-NOT APPROVED
-
 
 
 
