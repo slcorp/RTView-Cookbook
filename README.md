@@ -271,11 +271,123 @@ A grid of  Composite dispays trending “Live Count” data for each of the 11 s
 By setting the timeRange value from 60 (minutes) to a larger or smaller number, will display a greater or smaller range  over time.
 
 ##Pattern 6 - Show Bar Graph to Compare values   
-Bar graph filtered by list box
+
+*Goal*	
+
+We want to compare a value (in this case CPU Usage) of each component on a selected server using a bar chart.
+ 	 
+*Challenge*	
+
+We will not know how many components a given selected server has. This variable number of components must auto populate the bar chart accordingly. We will update the label of the bar chart using a variable, so that the selected server will be used as the chart label. We want to sort the values (in this case the components) in alphebetical order for display.
+
+*How To*	
+
+1. Create the cache as in pattern 3 (with a value of 10000 in maxNumberOfHistoryRows) and make certain the cache is connected to your data source.
+2. 
+2. Add the bar chart we will be viewing. Under Object Properties. We will use a variable for its label later.
+
+3. Add a drop down menu for Servers - this allows for the selection of a specific server.
+
+*Create and Add Variables*
+
+5. Add a variable for servers by going to Tools->Variables. Type in a variable name, in this case $server.
+
+*Create and Add Functions*
+
+In Tools->Functions, add the functions that will allow us to filter the Components menu based on the selection in the Servers menu.
+
+6. dataCurrentForServer - The first function is a pointer to the cache. Call this (in this examples case) dataCurrentForServer. It's Function Type is "Reference". Right click on Table, Attach to Data->Cache and select the cache you created in step 1. We will set Column(s) to "*" (all columns). Set Filter Rows to "Basic", Filter Column to "Server" and Filter Value to "$server".
+
+7. dataCurrentForServerSorted - This is a "Sort Table" function type and is responsible for sorting the component names in alphebetical order. Under Table, attach it to the previous function dataCurrentForServer. Set Sort Column Name(s) to "Component" and Sort Descending to "0".
+
+8. serverList - Add a function that will be utilized to populate the list of servers in the Servers drop down menu. Call this function serverList and give it a Function Type of "Create Selector List". We are going to attach the cache to this function (Table->Attach to Data->Cache) and use "Server" for Column(s). Filter Rows should be "Off" and Update Once should be selected. After clicking on OK, Sort Values should be set to 1 and Sort Descending should be set to 0.
+
+9. validateServer - In order to make certain we set a proper initial default value in the server menu use a function called "validateServer" and give it a type of "Validate Substitution". The Substitution String should be set to the $server variable, and this function should be attached to the serverList function and given Column(s) of Selector.
+
+*Attach Data to Objects*
+
+10. Attach data to our objects. Starting with the Servers drop down menu, using it's Object Properties we set Data->ListValues to the function we created in step 7 called serverList (which gives us all the servers), and we set selectedValue to our variable $server as well as setting varToSet to $server.
+
+11. Attach data to our bar chart using it's Object properties. Under Data->valueTable attach to data->function to dataCurrentForServerSorted (which simply sorts dataCurrentForServer) and use Component and CpuUsage for Column(s) (in that order).
+
+12. Use the $server variable as the label for the bar chart by going to Object Properties->Label->Label. Double click on Label and under "Variable Nmae" enter "$server".
+ 	 
+*Result*	
+
+Show a bar chart that reflects the historical data coming in for one selected server and one selected component of that server and then updates to display current incoming data.
+
 ##Pattern 7 - Show Bar Graph for Group Total Values   
-Bar graph group by sum of total values
+
+*Goal*	
+
+We want to see the total across all servers of a particular value (in this case Live Count) organized or grouped by component, using a bar chart. Live Count is a value that shows the number of users actively using some resource, and so this bar chart can be thought of as showing the total number of active users using each component totaled across all servers.
+ 	 
+*Challenge*	
+
+We want to know the total number of active users for each component for all of servers.
+ 	 
+*How To*
+
+1. Create the cache as in pattern 3 (with a value of 10000 in maxNumberOfHistoryRows) and make certain the cache is connected to your data source.
+
+2. Add the bar chart we will be viewing. Under Object Properties.
+
+*Create and Add Functions*
+
+In Tools->Functions, add the functions.
+
+3.dataTotalsByComponent - This function is of type "Group By Unique Values". Attach the cache data to this function (Attach To Data->Cache) and select our cache, use "current" for Table and set the Column(s) to "Component;LiveCount;" in that order. After selecting OK we then set Group Type to "Sum", Index Column Names to "Component", Restrict To Value List to "0". Use Column Names to "1" and Restrict to Data Combinations to "0".
+
+4. dataTotalsByComponentSorted- This is a "Sort Table" function type and is responsible for sorting the component names in alphebetical order. Under Table, attach it to the previous function dataTotalsByComponent. Set Sort Column Name(s) to "Component" and Sort Descending to "0".
+
+Here is a chart of the relationship between the functions:
+
+*Attach Data to Objects*
+
+5. Attach data to our bar chart using it's Object properties. Under Data->valueTable right click and attach to data->function to dataTotalsByComponent and use Component and LiveCount for Column(s) (in that order).
+
+*Result*
+
+Display a bar chart that reflects the total LiveCount value of each component across all servers.
+
 ##Pattern 8 - Show Bar Graph for Group by Average Total Values   
-Bar graph group by average of total values
+
+*Goal*	
+
+We want to see the average across all servers of values (in this case Free Menory and Used Memory) organized or grouped by component, using a bar chart. We want to clearly see how much average memory is free and how much average memory is used by color coding in our bar chart.
+ 	 
+*Challenge*	
+
+We want to know how much memory we have free and how much memory is used of all of our server components averaged by grouping them.
+We want each of the bars in our chart to reflect the average free and used memory of a group of components by arranging the chart so that there is a bar for each group of components rather than a bar for "free" and "used" memory.
+
+We want to stack the free and used memory in order to see our total memory and to clearly see free from used memory.
+
+*How To*	
+
+1. Create the cache as in pattern 3 (with a value of 10000 in maxNumberOfHistoryRows) and make certain the cache is connected to your data source.
+
+2. Add the bar chart we will be viewing. Under Object Properties.
+
+*Create and Add Functions*
+
+In Tools->Functions, add the functions.
+
+3.dataAverageByComponent - This function is of type "Group By Unique Values". Attach the cache data to this function (Attach To Data->Cache) and select our cache, use "current" for Table and set the Column(s) to "*". After selecting OK we then set Group Type to "average", Index Column Names to "Component", Restrict To Value List to "0". Use Column Names to "1" and Restrict to Data Combinations to "0".
+
+4. dataAverageByComponentSorted- This is a "Sort Table" function type and is responsible for sorting the component names in alphebetical order. Under Table, attach it to the previous function dataAverageByComponent. Set Sort Column Name(s) to "Component" and Sort Descending to "0".
+
+*Attach Data to Objects*
+
+5. Attach data to our bar chart using it's Object properties. Under Data->valueTable right click and attach to data->function to dataAverageByComponent and use Component; FreeMemory and UsedMemory for Column(s) (in that order).
+
+6. Pattern 8 shows the use of the "rowSeriesFlag" (Object Properties->Data->rowSeriesFlag). The rowSeriesFlag should be set to off, which allows us to see the component groups aligned at the bottom of the chart and the memory values as parameters on the right of the chart.
+
+7. Pattern 8 also introduces he "drawStackedFlag" (Layout->drawStackedFlag) which should be set. When set to on the drawStackedFlag stacks each of the values in the bars of the chart rather than displaying them next to each other.
+
+*Result*	
+
+Display a bar chart that clealry shows the average of total memory, free memory and used memory of all components grouped across servers.
 
 ##Pattern 9 - Heatmap
 
@@ -333,9 +445,108 @@ The heat map is a very direct visual alert system.  Red indicates an Alert state
 If we move the slider to higher CpuUsage, say 50 (50%), Fewer Red, Alert conditions will result. Pressing the upper right hand “New Window” button  will bring up a new window containing the heat map that can be set independently of the original window.  In this example the original window is set to CpuUsage 5, and the New Window to CpuUsage 75.
  
 ##Pattern 10 - Show Trend Chart of Multiple Trends      
-Multiple trends from synchronous data
+
+*Goal*	
+
+We want to see a trend chart that shows one value (in this pattern Cpu Usage) on all of the components on one selected server. For this pattern we have one drop down menu that reflects the server we wish to review, and no menu for the components. In this Pattern all of the component data is coming in at the same time (synchronously).
+ 	 
+*Challenge*	
+
+We will not know how many components a given selected server has. This variable number of components must auto populate the trend chart accordingly.
+ 	 
+*How To*	
+
+Several characteristics of this pattern are similar to Pattern 3. Once again, we are visualizing our data on a trend graph, but this time we are going to look at all of the components of one selected server.
+
+1. Create the cache as in pattern 3 (with a value of 10000 in maxNumberOfHistoryRows) and make certain the cache is connected to your data source.
+
+2. Add the trend graph we will be viewing and give it a label (Object Properties, Label->Label), such as "Server Component Graph". This trend graph will display multiple trends, and so it should have it's Object Property "Trace->multiTraceTableFlag" checked.
+
+3. Add a drop down menu for Servers - this will allow us to select a specific server. We will not need a menu for components in this pattern since all components of the user selected server will be displayed in the trend graph.
+
+*Create and Add Variables*
+
+4. Add a variable for servers by going to Tools->Variables. Type in a variable name, in this case we use $server.
+
+We do not need a variable for components in this pattern.
+
+*Create and Add Functions*
+
+In Tools->Functions, add the functions that will allow us to filter the Components menu based on the selection in the Servers menu.
+
+5. dataCurrentForServerPivoted - The first function references the current data coming in from the cache, and this function will also pivot the data so that it can be used in rows rather than columns. Call this dataCurrentForServerPivoted. It's Function Type is "Pivot On Unique Values". Right click on Table, Attach to Data->Cache and select the cache you created in step 1. Because this is the "current" data, set Table to Current. Set Column(s) to "time_stamp;Component;CpuUsage". Set Filter Rows to "Basic", Filter Column to Server and Filter Value to $server.
+
+6. dataHistoryForServerPivoted - We also want to see the historical data for a given selected server. Create another function similar to the function we created in step 5 called dataHistoryForServerPivoted. The function is similar enough to he previous function (dataCurrentForServerPivoted) that it can be copied rather than recreated if you wish. Attach Table->Attach to Data to the cache again. Set Table to History (rather than current) this time, Column(s) to "time_stamp;Component;CpuUsage", Filter Rows to Basic, Filter Column to Server and Filter Value to $server. Check the "Update Once" box so that the historical data is only loaded once.
+
+7. serverList - Just as in Pattern 3, add a function that will be utilized to populate the list of servers in the Servers drop down menu. Call this function serverList and give it a Function Type of "Create Selector List".Attach the cache to this function (Table->Attach to Data->Cache) and use "Server" for Column(s). After clicking on OK, Sort Values for serverList should be set to 1 and Sort Descending should be set to 0.
+
+8. validateServer - Once again as in Pattern 3, in order to make certain we set a proper initial default value in the server menu use a function called "validateServer" and give it a type of "Validate Substitution". The Substitution String should be set to the $server variable, and this function should be attached to the "serverList" function and given Column(s) of Values.
+
+*Attach Data to Objects*
+
+9.Attach our filtered data to our objects. Starting with the Servers drop down menu, using it's Object Properties we set Data->ListValues to the function we created in step 7 called serverList (which gives us all the servers), and set selectedValue to our variable $server as well as setting varToSet to $server.
+
+10. Attach our trend graph to two functions. The first is attached via Trace->multiTraceCurrentValueTable and should be set to "dataCurrentForServerPivoted" with all (*) Column(s). The second is attached via Trace->multiTraceHistoryValueTable and should be set to "dataHistoryForServerPivoted" with all (*) Column(s). This gives us both the current data coming in and the historical data to trend. Make certain that the property multiTraceTableFlag is checked. Under Object Properties->X-Axis set timeRangeOfHistory to -1, timeShift to 5 and timeRange to 120.0. Under Object Properties Y-Axis we set yAxisMultiRangeMode to "Strip Chart" in order to see the traces in distinct rows. It is also helpful to set Object Properties->Trace->traceFillStyle to Transparent Gradient.
+
+*Result*
+
+Show a trend chart that reflects the history and the current state of all of the components on one selected server, assuming that the component data is coming in at the same time.
+
 ##Pattern 11 - Show Trend Chart of Multiple Trends      
-Multiple trends from asynchronous data
+
+*Goal*	
+
+As in Pattern 10, we want to see a trend chart that shows all of the components on one selected server. However, in Pattern 5 we have data coming in asynchronously (at different times) for the selected server.
+ 	 
+*Challenge*	
+
+We will not know how many components a given selected server has. This variable number of components must auto populate the trend chart accordingly.
+
+Unlike Pattern 10, in this pattern the component data is coming in asynchronously, and so we must group the data (in this case by time) and average the values.
+
+*How To*
+
+Several of the steps in this pattern are the same as in Pattern 10 as well as the other preceding patterns.
+
+1. Create the cache as in Pattern 3 (with a value of 10000 in maxNumberOfHistoryRows) and make certain the cache is connected to your data source.
+
+2. Add the trend graph we will be viewing and give it a label (Object Properties, Label->Label), such as "Server Component Graph". This trend graph will display multiple trends, and so it should have it's Object Property "Trace->multiTraceTableFlag" checked.
+
+3. Add a drop down menu for Servers - this allows us to select a specific server. We will not need a menu for components in this pattern since all components of the user selected server will be displayed in the trend graph.
+
+*Create and Add Variables*
+
+4. Add a variable for servers by going to Tools->Variables. Type in a variable name, in this case we use $server.
+
+*Create and Add Functions*
+
+In Tools->Functions, add the functions that will allow us to filter the Components menu based on the selection in the Servers menu.
+
+Note that for the functions "dataCurrentForServerByTime" and "dataHistoryForServerByTime" below, date parts per interval has to be at least as large as the variation between time stamps coming in from the data. We use a value of 15 seconds - none of our incoming simulated data has a time spread greater than that.
+
+5. dataCurrentForServerByTime - Create a function to group the current component values that come in at different times. Call this function dataCurrentForServerByTime and give it a function type of "Group By Time and Unique Values". Attach the cache data to this function (Attach To Data->Cache) and select our cache, use "current" for Table and set the Column(s) to "time_stamp;Component;CpuUsage" in that order. Filter the rows by setting Filter Rows to Basic, Filter Column to Server and Filter Value to $server. After selecting OK we then set Group Type to "Average", Date/Time Column Name to time_stamp, Date Part to "s", Date Parts Per Interval to "15", Number of Intervals to "1", Restrict To Time Range to "0", Index Column Names to "Component", Restrict To Value List to "0". Use Column Names to "1" and Restrict to Data Combinations to "0".
+
+6. dataHistoryForServerByTime - Create a function to group the historical component values that come in asynchronously. This is almost a duplicate of the previous function dataCurrentForServerByTime, the only difference being that in the "Attach to Cache Data" dialog we set Table to "History" rather than Current and check the "Update Once" box. So, step by step, call this function dataCurrentForServerByTime and give it a function type of "Group By Time and Unique Values". Attach the cache data to this function (Attach To Data->Cache) and select our cache, use "History" for Table and set the Column(s) to "time_stamp;Component;CpuUsage" in that order. Filter the rows by settingFilter Rows to Basic, Filter Column to Server and Filter Value to $server. Check the Update Once box since we want to load the history only once not over and over. Select OK then set Group Type to "Average", Date/Time Column Name to time_stamp, Date Part to "s", Date Parts Per Interval to "15", Number of Intervals to "1", Restrict To Time Range to "0", Index Column Names to "Component", Restrict To Value List to "0". Use Column Names to "1" and Restrict to Data Combinations to "0".
+
+7. dataCurrentForServerByTimePivoted - As in Pattern 10, we need to pivot the data for visualization in a trend graph.Call this dataCurrentForServerByTimePivoted. It's Function Type is "Pivot On Unique Values". Right click on Table, Attach to Data->Function and select the function "dataCurrentForServerByTime". Set Columns to all (*).
+
+8. dataHistoryForServerByTimePivoted - Pivot the historical data as well.Call this dataHistoryForServerByTimePivoted. It's Function Type is "Pivot On Unique Values". Right click on Table, Attach to Data->Function and select the function "dataHistoryForServerByTime". Set Columns to all (*).
+
+9. serverList - Just as in previous patterns, add a function that will be utilized to populate the list of servers in the Servers drop down menu. Call this function serverList and give it a Function Type of "Create Selector List". Attach the cache to this function (Table->Attach to Data->Cache) and use "Server" for Column(s). After clicking on OK, Sort Values for serverList should be set to 1 and Sort Descending should be set to 0.
+
+10. validateServer - As in previous patterns use a function called "validateServer" to set an initial default value on the server menu. Give it a type of "Validate Substitution". The Substitution String should be set to the $server variable, and this function should be attached to the "serverList" function and given Column(s) of Values.
+
+*Attach Data to Objects*
+
+11. Attach our filtered data to our objects. Starting with the Servers drop down menu, using it's Object Properties we set Data->ListValues to the function we created in step 7 called serverList (which gives us all the servers), and set selectedValue to our variable $server as well as setting varToSet to $server.
+
+12. Attach our trend graph to two functions. The first is attached via Trace->multiTraceCurrentValueTable and should be set to "dataCurrentForServerByTimePivoted" with all (*) Column(s). The second is attached via Trace->multiTraceHistoryValueTable and should be set to "dataHistoryForServerByTimePivoted" with all (*) Column(s). This gives us both the current data coming in and the historical data to trend.
+
+As in Pattern 10, make certain that the property multiTraceTableFlag is checked. Under Object Properties->X-Axis we set timeRangeOfHistory to -1, timeShift to 5 and timeRange to 120.0. Under Object Properties Y-Axis we set yAxisMultiRangeMode to "Strip Chart" in order to see the traces in distinct rows. It is also helpful to set Object Properties->Trace->traceFillStyle to Transparent Gradient.
+
+*Result*
+
+Show a trend chart that reflects the current state of all of the components on one selected server and allow for asynchronous data.
 
 
 
